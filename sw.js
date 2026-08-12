@@ -1,5 +1,5 @@
-const CACHE='papervocab-v06';
-const ASSETS=['./','./index.html','./style.css','./features.css','./app.js','./data.js','./data_extra1.js','./data_extra2.js','./data_extra3.js','./data_bulk_helper.js','./data_more1.js','./data_more2.js','./data_more3.js','./papers.js','./manifest.webmanifest'];
+const CACHE='papervocab-v07';
+const ASSETS=['./','./index.html','./style.css','./features.css','./app.js','./data.js','./data_extra1.js','./data_extra2.js','./data_extra3.js','./data_bulk_helper.js','./data_more1.js','./data_more2.js','./data_more3.js','./data_more4.js','./data_more5.js','./data_more6.js','./papers.js','./manifest.webmanifest'];
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)))});
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([self.clients.claim(),caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))])));
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r}).catch(()=>caches.match(e.request)))});
