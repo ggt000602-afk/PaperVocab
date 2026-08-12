@@ -1,39 +1,43 @@
 @media (max-width: 700px){
   body.pv-study-active{overflow:hidden;height:100dvh;}
   body.pv-study-active .topbar{display:none!important;}
-  body.pv-study-active #view{height:calc(100dvh - 78px);overflow:hidden;padding:10px 14px 8px;box-sizing:border-box;display:flex;flex-direction:column;}
-  body.pv-study-active .study-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:0 0 8px;flex:0 0 auto;}
-  body.pv-study-active .study-tabs button{min-height:40px;padding:7px 4px;border-radius:14px;font-size:13px;white-space:nowrap;}
-  body.pv-review-active .study-head{margin:2px 2px 5px;font-size:14px;flex:0 0 auto;}
-  body.pv-review-active .progress{height:7px;margin:0 0 8px;flex:0 0 auto;}
-  body.pv-review-active .compact-filter{padding:6px 10px;margin-bottom:6px;font-size:12px;}
-  body.pv-review-active .study-card{min-height:0!important;height:auto!important;flex:1 1 auto;margin:0!important;padding:14px 16px!important;border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
-  body.pv-review-active .study-label{align-self:flex-start;font-size:12px;padding:6px 10px;margin:0 0 4px;}
-  body.pv-review-active .study-card h2{font-size:clamp(34px,9vw,52px)!important;line-height:1.02!important;margin:4px 0 8px!important;text-align:center;max-width:100%;overflow-wrap:anywhere;}
-  body.pv-review-active .study-card .pron{font-size:18px!important;line-height:1.1;margin:2px 0!important;}
-  body.pv-review-active .study-card .big-pron{font-size:18px!important;line-height:1.1;margin:5px 0!important;}
-  body.pv-review-active .study-card .tap-hint{font-size:13px!important;margin-top:14px!important;}
-  body.pv-review-active .pv-inline-audio{margin:8px 0 0!important;gap:6px!important;}
-  body.pv-review-active .pv-inline-audio button{padding:8px 13px!important;font-size:12px!important;}
-  body.pv-review-active .answer{width:100%;max-height:27dvh;overflow:auto;margin-top:8px;padding:8px 4px 0;box-sizing:border-box;}
-  body.pv-review-active .answer h3{font-size:21px;margin:0 0 4px;}
-  body.pv-review-active .answer p{font-size:14px;line-height:1.35;margin:4px 0;}
-  body.pv-review-active .answer .example-mini{font-size:13px;line-height:1.3;margin:7px 0 3px;}
-  body.pv-review-active .answer .translation{font-size:12px;line-height:1.3;margin:3px 0;}
-  body.pv-review-active .compact-answer{flex:0 0 auto;margin:8px 0 0!important;min-height:48px!important;padding:10px!important;}
-  body.pv-review-active .review-grid{flex:0 0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0 0!important;}
-  body.pv-review-active .review-grid button{min-height:48px!important;padding:7px 2px!important;font-size:13px!important;border-radius:14px!important;}
-  body.pv-review-active .review-grid small{font-size:9px!important;margin-top:2px!important;}
-  body.pv-review-active .compact-master{flex:0 0 auto;min-height:42px!important;margin:6px 0 0!important;padding:8px!important;font-size:14px!important;}
+  body.pv-study-active #view{height:calc(100dvh - 96px - env(safe-area-inset-bottom));overflow:hidden;padding:8px 14px 6px;box-sizing:border-box;display:flex;flex-direction:column;}
+  body.pv-study-active .study-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:0 0 6px;flex:0 0 auto;}
+  body.pv-study-active .study-tabs button{min-height:36px;padding:6px 3px;border-radius:13px;font-size:12px;white-space:nowrap;}
+  body.pv-review-active .study-head{margin:1px 2px 4px;font-size:13px;flex:0 0 auto;}
+  body.pv-review-active .progress{height:6px;margin:0 0 6px;flex:0 0 auto;}
+  body.pv-review-active .compact-filter{padding:5px 9px;margin-bottom:5px;font-size:11px;}
+  body.pv-review-active .study-card{min-height:0!important;height:auto!important;flex:1 1 0;margin:0!important;padding:10px 14px!important;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
+  body.pv-review-active .study-label{align-self:flex-start;font-size:11px;padding:5px 9px;margin:0 0 2px;}
+  body.pv-review-active .study-card h2{font-size:clamp(30px,8.4vw,48px)!important;line-height:1.0!important;margin:2px 0 6px!important;text-align:center;max-width:100%;overflow-wrap:anywhere;}
+  body.pv-review-active .study-card .pron{font-size:16px!important;line-height:1.05;margin:1px 0!important;}
+  body.pv-review-active .study-card .big-pron{font-size:16px!important;line-height:1.05;margin:3px 0!important;}
+  body.pv-review-active .study-card .tap-hint{font-size:12px!important;margin-top:10px!important;}
+  body.pv-review-active .pv-inline-audio{margin:5px 0 0!important;gap:5px!important;}
+  body.pv-review-active .pv-inline-audio button{padding:7px 11px!important;font-size:11px!important;}
+  body.pv-review-active .answer{width:100%;max-height:20dvh;overflow:auto;margin-top:5px;padding:5px 3px 0;box-sizing:border-box;}
+  body.pv-review-active .answer h3{font-size:18px;margin:0 0 3px;}
+  body.pv-review-active .answer p{font-size:12px;line-height:1.25;margin:3px 0;}
+  body.pv-review-active .answer .example-mini{font-size:11px;line-height:1.22;margin:5px 0 2px;padding:8px!important;}
+  body.pv-review-active .answer .translation{font-size:11px;line-height:1.2;margin:2px 0;}
+  body.pv-review-active .compact-answer{flex:0 0 auto;margin:6px 0 0!important;min-height:44px!important;padding:8px!important;}
+  body.pv-review-active .review-grid{flex:0 0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:6px 0 0!important;}
+  body.pv-review-active .review-grid button{min-height:44px!important;padding:6px 2px!important;font-size:12px!important;border-radius:13px!important;}
+  body.pv-review-active .review-grid small{font-size:8px!important;margin-top:1px!important;}
+  body.pv-review-active .compact-master{flex:0 0 auto;min-height:36px!important;margin:5px 0 0!important;padding:6px!important;font-size:13px!important;}
   body.pv-study-active .study-done{margin:auto 0;}
-  body.pv-study-active + *{overscroll-behavior:none;}
 }
-@media (max-width: 700px) and (max-height: 740px){
-  body.pv-review-active .study-tabs button{min-height:34px;font-size:11px;}
-  body.pv-review-active .study-card{padding:10px 12px!important;}
-  body.pv-review-active .study-card h2{font-size:clamp(28px,8vw,42px)!important;}
-  body.pv-review-active .study-card .pron,body.pv-review-active .study-card .big-pron{font-size:15px!important;}
-  body.pv-review-active .answer{max-height:22dvh;}
-  body.pv-review-active .review-grid button{min-height:42px!important;}
-  body.pv-review-active .compact-master{min-height:38px!important;}
+@media (max-width: 700px) and (max-height: 820px){
+  body.pv-study-active #view{height:calc(100dvh - 100px - env(safe-area-inset-bottom));padding-top:6px;}
+  body.pv-review-active .study-tabs button{min-height:32px;font-size:10px;}
+  body.pv-review-active .study-head{font-size:12px;}
+  body.pv-review-active .study-card{padding:8px 10px!important;}
+  body.pv-review-active .study-card h2{font-size:clamp(26px,7.5vw,40px)!important;}
+  body.pv-review-active .study-card .pron,body.pv-review-active .study-card .big-pron{font-size:14px!important;}
+  body.pv-review-active .pv-inline-audio button{padding:6px 9px!important;font-size:10px!important;}
+  body.pv-review-active .answer{max-height:17dvh;}
+  body.pv-review-active .answer h3{font-size:16px;}
+  body.pv-review-active .answer p,body.pv-review-active .answer .example-mini,body.pv-review-active .answer .translation{font-size:10px;}
+  body.pv-review-active .review-grid button{min-height:40px!important;font-size:11px!important;}
+  body.pv-review-active .compact-master{min-height:32px!important;margin-top:4px!important;}
 }
