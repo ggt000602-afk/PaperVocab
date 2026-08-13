@@ -1,37 +1,42 @@
 (function(){
   S.categoryStudy=S.categoryStudy||null;
 
-  const baseActiveUniverse=window.activeUniverse;
-  window.activeUniverse=function(){
-    if(S.categoryStudy) return WORDS.filter(w=>w.category===S.categoryStudy);
-    if(S.paperStudy) return paperWords(S.paperStudy);
-    return WORDS;
-  };
-
   window.startCategoryStudy=function(category){
     S.categoryStudy=category;
     S.paperStudy=null;
     S.studyMode='review';
     S.answer=false;
+    S._reviewSession=null;
+    S._reviewSessionComplete=false;
     if(typeof window.pvResetReviewSession==='function') window.pvResetReviewSession();
     setTab('study');
   };
 
   window.clearCategoryStudy=function(){
     S.categoryStudy=null;
+    S._reviewSession=null;
+    S._reviewSessionComplete=false;
     if(typeof window.pvResetReviewSession==='function') window.pvResetReviewSession();
     render();
   };
 
   window.continueReview=function(){
-    if(typeof window.pvResetReviewSession==='function') window.pvResetReviewSession();
+    S._reviewSession=null;
     S._reviewSessionComplete=false;
+    if(typeof window.pvResetReviewSession==='function') window.pvResetReviewSession();
     S.answer=false;
     render();
   };
 
+  // study_fix.js가 사용하는 학습 대상 함수를 카테고리 필터까지 포함하도록 교체
+  window.activeUniverse=function(){
+    if(S.categoryStudy) return WORDS.filter(w=>w.category===S.categoryStudy);
+    if(S.paperStudy) return paperWords(S.paperStudy);
+    return WORDS;
+  };
+
   function remainingStudyCount(){
-    const p=progress(), now=Date.now();
+    const p=progress();
     return activeUniverse().filter(w=>!p[w.term]?.mastered).length;
   }
 
@@ -58,7 +63,8 @@
     if(S.selected!==null) return html;
     if(S.category && S.category!=='전체'){
       const count=WORDS.filter(w=>w.category===S.category&&!isMastered(w)).length;
-      const panel=`<div class="category-study-panel"><div><b>${escapeHtml(S.category)}</b><span>이 카테고리만 모아서 학습할 수 있습니다.</span></div><button class="btn primary" onclick="startCategoryStudy(${JSON.stringify(S.category)})">이 카테고리 학습 시작 · ${count}개</button></div>`;
+      const encoded=encodeURIComponent(S.category);
+      const panel=`<div class="category-study-panel"><div><b>${escapeHtml(S.category)}</b><span>이 카테고리만 모아서 학습할 수 있습니다.</span></div><button class="btn primary" onclick="startCategoryStudy(decodeURIComponent('${encoded}'))">이 카테고리 학습 시작 · ${count}개</button></div>`;
       const marker='<div class="list-count">';
       const pos=html.indexOf(marker);
       if(pos>=0) html=html.slice(0,pos)+panel+html.slice(pos);
@@ -76,11 +82,5 @@
   window.openMode=function(m){
     S.categoryStudy=null;
     return originalOpenMode(m);
-  };
-
-  const originalSetTab=window.setTab;
-  window.setTab=function(t){
-    if(t!=='study' && t!=='words') S.categoryStudy=null;
-    return originalSetTab(t);
   };
 })();
